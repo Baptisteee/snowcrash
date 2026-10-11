@@ -1,4 +1,15 @@
-Temporary : 
-  - Password : cdiiddwpgswtgt
-  - Password (decrypted) : nottohardhere
-  - Flag : x24ti5gi3x0ol2eh4esiuxias
+Explication : 
+
+On arrive dans le dossier, on fait ls, aucun fichier.
+
+Apres quelque recherches dans les fichiers, je fais un `find` avec l'user flag00 pour voir si des fichiers appartiennent a flag00
+
+Commande : find / -user flag00
+
+Resultat : Plein de fichier auxquel on a pas la permission et `/usr/sbin/john`, `/rofs/usr/sbin/john`
+
+On cat ce fichier ce qui nous donne `cdiiddwpgswtgt` qui est un code cypher, qui donne `nottoohardhere` une fois dechiffrer
+ 
+On fait su flag00 avec le mot de passe dechiffrer
+
+getflag donne : x24ti5gi3x0ol2eh4esiuxias

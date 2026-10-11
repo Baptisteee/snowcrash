@@ -1,0 +1,24 @@
+Explication :
+
+On trouve deux fichier un binaire `level09`, et un fichier `token` qu'on peut lire mais contenant des caracteres non lisible
+
+Lorsqu'on execute level09 il nous demande un argument.
+
+level09@SnowCrash:~$ ./level09 
+You need to provied only one arg.
+level09@SnowCrash:~$ ./level09 token 
+tpmhr
+level09@SnowCrash:~$ 
+
+On remarque que la premiere letre est la meme, mais que o devient p, k devient m, e devient h et n devient r
+
+On en deduit donc que le binaire transforme chaque caractere en caracter + index du caractere 
+
+Par exemple, o + 1 devient p, k + 2 devient m, ...
+
+On creer donc un code en c permettant de faire l'inverse sur token, ce qui nous donne f3iji1ju5yuevaus41q1afiuq.
+
+su flag09
+
+flag09@SnowCrash:~$ getflag
+Check flag.Here is your token : s5cAJpM8ev6XHw998pRWG728z

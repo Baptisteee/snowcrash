@@ -1,0 +1,15 @@
+Explications : 
+
+On fait ls dans le fichier, on trouve level02.pcap qui est un format utilise pour enregistrer du traffic du reseau (en gros)
+
+On l'ouvre avec wireshark (apres avoir galerer a l'installer a l'aide)
+
+On trouve `ft_wandr...NDRel.L0L`
+
+Les . sont des caracteres non printable, on le met en hexdump et on regarde ce a quoi ces caracteres correspondent.
+
+Ces caracteres sont `7F` ce qui donne `ft_waNDReL0L`
+
+su flag02 avec le mot de passe
+
+getflag donne `kooda2puivaav1idi4f57q8iq`

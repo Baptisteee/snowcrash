@@ -1,4 +1,15 @@
-Temporary : 
-  - Password : 42hDRfypTqqnw
-  - Password (decrypted) : abcdef
-  - Flag : f2av5il02puano7naaf6adaaf
+Explications : 
+
+On fait ls, aucun fichier
+
+On peut essayer de cat /etc/passwd ce qui nous donne le fichier dont cette ligne `flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash`
+
+On recupere le fichier avec la commande scp puis on cherche un moyen de le dechiffrer. 
+
+On installe John The Ripper (indice venant du niveau d'avant avec le fichier /usr/sbin/john)
+
+On dechiffre avec john `john passwd --show` ce qui nous donne `abcdefg`
+
+su flag01 avec le mot de passe
+
+getflag nous donne `f2av5il02puano7naaf6adaaf`
