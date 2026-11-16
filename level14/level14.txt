@@ -1,2 +1,16 @@
-Temporary :
-  - Flag : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+Rien sur toute la VM. On essaie de regarder comment exploiter getflag.
+
+On ne peut pas reverse avec GDB.
+
+On voit qu'il utilise getuid, on va devoir surement le changer comme avant.
+
+id de flag14 : 3014
+
+b getuid
+step
+print $eax (= 2014)
+
+set $eax=3014
+step
+
+Token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ

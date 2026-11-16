@@ -1,2 +1,10 @@
 Password : 
   - Flag : fa6v5ateaw21peobuub8ipe6s
+
+Explication : 
+
+Ce programme ouvre une connexion socket et attend un mot de passe.
+
+Etant donne qu'il execute input, on peut facilement injecter une commande.
+
+$(getflag) > /tmp/test
